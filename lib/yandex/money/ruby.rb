@@ -9,13 +9,18 @@ module Yandex
         include HTTParty
 
         base_uri "https://sp-money.yandex.ru"
+        # authorization code. Needed to obtain token
+        attr_accessor :code
+        attr_accessor :client_id
 
         # Returns url to get token
         def initialize(client_id, redirect_uri, scope, client_secret=nil)
-          @client_url = send_request(
-            "client_id" => client_id,
+          @client_id = client_id
+          @redirect_uri = redirect_uri
+          @client_url = send_authorize_request(
+            "client_id" => @client_id,
             "response_type" => "code",
-            "redirect_uri" => redirect_uri,
+            "redirect_uri" => @redirect_uri,
             "scope" => scope
           )
         end
@@ -24,11 +29,17 @@ module Yandex
           @client_url
         end
 
-        private
-        def auth(code, redirect_uri)
+        def obtain_token
+          raise 'Authorization code not provided' if code == nil
+          uri = "/oauth/token"
+          self.class.post(uri, body: {
+            code: @code,
+            client_id: @client_id
+          }).parsed_response["access_token"]
         end
 
-        def send_request(options)
+        private
+        def send_authorize_request(options)
           uri = "/oauth/authorize"
           self.class.post(uri, body: options).request.path.to_s
         end
