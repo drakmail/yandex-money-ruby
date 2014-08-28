@@ -14,7 +14,7 @@ module Yandex
         attr_accessor :client_id
 
         # Returns url to get token
-        def initialize(client_id, redirect_uri, scope, client_secret=nil)
+        def initialize(client_id, redirect_uri, scope)
           @client_id = client_id
           @redirect_uri = redirect_uri
           @client_url = send_authorize_request(
@@ -34,7 +34,9 @@ module Yandex
           uri = "/oauth/token"
           self.class.post(uri, body: {
             code: @code,
-            client_id: @client_id
+            client_id: @client_id,
+            grant_type: "authorization_code",
+            redirect_uri: @redirect_url
           }).parsed_response["access_token"]
         end
 
