@@ -1,4 +1,4 @@
-# Yandex-Money-Ruby
+# YandexMoney Api
 
 Simple gem for Yandex Money usage.
 
@@ -21,14 +21,14 @@ Or install it yourself as:
 ### 1. Initialize API
 
 ```ruby
-api = Yandex::Money::Ruby::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history")
+api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history")
 ```
 
 ### 2. User browser OS to send auth request to Yandex.Money server
 
 After visiting `api.client_url` client will be redirected to `REDIRECT_URL` with `code` parameter. It is authorization code, needed for token obtaining.
 
-To get token use `Yandex::Money::Ruby::Api#obtain_token`:
+To get token use `YandexMoney::Api#obtain_token`:
 
 ```ruby
 api.code = "ACEB6F56EC46B66F280AFB9C805C61A66A8B5" # obtained code

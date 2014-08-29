@@ -1,7 +1,7 @@
 require 'bundler/setup'
 Bundler.setup
 
-require 'yandex/money/ruby'
+require 'yandex_money/api'
 require 'vcr'
 
 VCR.configure do |c|
