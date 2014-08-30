@@ -25,12 +25,16 @@ Or install it yourself as:
 
 ```ruby
 # If TOKEN was obtained previosly
-  api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history", TOKEN)
+  api = YandexMoney::Api.new(token: TOKEN)
 ```
 
 ```ruby
-# If TOKEN need to be obtained
-  api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history")
+# If TOKEN is need to be obtained
+  api = YandexMoney::Api.new(
+    client_id: CLIENT_ID,
+    redirect_uri: REDIRECT_URI,
+    scope: "account-info operation-history"
+  )
 ```
 
 ### 2. User browser OS to send auth request to Yandex.Money server
