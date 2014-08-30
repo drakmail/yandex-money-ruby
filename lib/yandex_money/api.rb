@@ -8,6 +8,7 @@ module YandexMoney
     include HTTParty
 
     base_uri "https://sp-money.yandex.ru"
+    default_timeout 30
 
     attr_accessor :client_url, :code, :token
 
@@ -85,14 +86,15 @@ module YandexMoney
     def request_payment(options)
       check_token
       uri = "/api/request-payment"
-      request = self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
-        "Authorization" => "Bearer #{@token}",
-        "Content-Type" => "application/x-www-form-urlencoded"
-      }, body: options)
+      response = OpenStruct.new with_http_retries {
+        request = self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
+          "Authorization" => "Bearer #{@token}",
+          "Content-Type" => "application/x-www-form-urlencoded"
+        }, body: options)
 
-      raise "Insufficient Scope" if request.response.code == "403"
-
-      response = OpenStruct.new request.parsed_response
+        raise "Insufficient Scope" if request.response.code == "403"
+        request.parsed_response
+      }
       if response.error
         raise response.error.gsub(/_/, " ").capitalize
       else
@@ -101,6 +103,16 @@ module YandexMoney
     end
 
     private
+
+    # Retry when errors
+    def with_http_retries(&block)
+      begin
+        yield
+      rescue Errno::ECONNREFUSED, SocketError, Net::ReadTimeout
+        sleep 1
+        retry
+      end
+    end
 
     def check_token
       raise "Token not provided" unless @token
