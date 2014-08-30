@@ -45,6 +45,15 @@ module YandexMoney
       }).parsed_response
     end
 
+    # obtains operation history
+    def operation_history
+      uri = "/api/operation-history"
+      OpenStruct.new self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
+        "Authorization" => "Bearer #{@token}",
+        "Content-Type" => "application/x-www-form-urlencoded"
+      }).parsed_response
+    end
+
     private
 
     def send_authorize_request(options)

@@ -34,5 +34,13 @@ describe YandexMoney::Api do
         expect(info.account).to eq("41001565326286")
       end
     end
+
+    it "should return operation history" do
+      VCR.use_cassette "get operation history" do
+        api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history", TOKEN)
+        info = api.operation_history
+        expect(info.operations.count).to eq 30
+      end
+    end
   end
 end

@@ -55,6 +55,17 @@ api.account_info
 #<OpenStruct account="41001565326286", balance=48.98, currency="643", avatar={"ts"=>"2012-05-02T17:22:59.000+04:00", "url"=>"https://avatars.yandex.net/get-yamoney-profile/yamoney-profile-56809635-2/normal?1335964979000"}, account_type="personal", identified=false, account_status="named">
 ```
 
+#### operation-history method
+
+This method allows viewing the full or partial history of operations in page mode. History records are displayed in reverse chronological order (from most recent to oldest).
+
+Required permissions: `operation-history`.
+
+```ruby
+api.operation_history
+#<OpenStruct next_record="30", operations=[{"operation_id"=>"462449992116028008", "title"=>"Возврат средств от:", "amount"=>1.0, "direction"=>"in", "datetime"=>"2014-08-27T10:19:52Z", "status"=>"success", "type"=>"deposition"}, ..., {"pattern_id"=>"p2p", "operation_id"=>"460970888534110007", "title"=>"Перевод на счет 410011700000000", "amount"=>3.02, "direction"=>"out", "datetime"=>"2014-08-10T07:28:15Z", "status"=>"success", "type"=>"outgoing-transfer"}]>
+```
+
 ## Caveats
 
 This library very unstable. Pull requests welcome!
