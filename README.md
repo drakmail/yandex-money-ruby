@@ -35,6 +35,19 @@ api.code = "ACEB6F56EC46B66F280AFB9C805C61A66A8B5" # obtained code
 token = api.obtain_token # token contains valid client token
 ```
 
+## Methods
+
+### Information about a user's account
+
+#### account-info method
+
+Getting information about the status of the user account. Required permissions: `account-info`.
+
+```ruby
+api.account_info
+#<OpenStruct account="41001565326286", balance=48.98, currency="643", avatar={"ts"=>"2012-05-02T17:22:59.000+04:00", "url"=>"https://avatars.yandex.net/get-yamoney-profile/yamoney-profile-56809635-2/normal?1335964979000"}, account_type="personal", identified=false, account_status="named">
+```
+
 ## Caveats
 
 This library very unstable. Pull requests welcome!

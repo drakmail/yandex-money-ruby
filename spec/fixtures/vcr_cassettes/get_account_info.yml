@@ -1,0 +1,512 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sp-money.yandex.ru/oauth/authorize
+    body:
+      encoding: UTF-8
+      string: client_id=84ED7836D6C0273670C2BA5616AFC9B810F56C10E1F272467E0C158B6232E0E8&response_type=code&redirect_uri=http%3A%2F%2Fdrakmail.github.io%2Fyandex-money-ruby&scope=account-info%20operation-history
+    headers: {}
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 30 Aug 2014 12:09:30 GMT
+      Content-Type:
+      - text/html
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=120
+      Cache-Control:
+      - max-age=0, proxy-revalidate
+      Expires:
+      - Sat, 30 Aug 2014 12:14:30 GMT
+      Location:
+      - https://money.yandex.ru/select-wallet.xml?requestid=313139303439383835305f62383833333235383632303332386338393034646336653761376431613236636531353333633536
+      Set-Cookie:
+      - yandexuid=3782039671409400570; domain=.yandex.ru; path=/; expires=Tue, 19
+        Jan 2038 03:14:07 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Sat, 30 Aug 2014 12:09:30 GMT
+- request:
+    method: get
+    uri: https://money.yandex.ru/select-wallet.xml?requestid=313139303439383835305f62383833333235383632303332386338393034646336653761376431613236636531353333633536
+    body:
+      encoding: UTF-8
+      string: client_id=84ED7836D6C0273670C2BA5616AFC9B810F56C10E1F272467E0C158B6232E0E8&response_type=code&redirect_uri=http%3A%2F%2Fdrakmail.github.io%2Fyandex-money-ruby&scope=account-info%20operation-history
+    headers:
+      Cookie:
+      - yandexuid=3782039671409400570
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 30 Aug 2014 12:09:30 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=120
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - max-age=0, proxy-revalidate
+      Expires:
+      - Sat, 30 Aug 2014 12:14:30 GMT
+      X-Frame-Options:
+      - deny
+      Set-Cookie:
+      - yamoney_sw_1=true; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT
+      - yamoney_ur=GIdQIgimYFIEowKIGkCSYTIOIwBLwIGVlkwUdg8DdlhJkbpNUqcQZiBVDZTq9iEkiRgATVrIAgtmwx0YYIirIOuSTBXs%2BbDvDCToMI4xiDwCpfiWEY4abEakqx0sDhAA;
+        domain=money.yandex.ru; path=/; expires=Sun, 30 Aug 2015 12:09:30 GMT; secure;
+        HttpOnly
+    body:
+      encoding: UTF-8
+      string: "<!DOCTYPE html SYSTEM \"about:legacy-compat\">\n<html class=\"i-ua_js_no
+        i-ua_css_standart\">\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html;
+        charset=utf-8\">\n<title>Яндекс.Деньги</title>\n<meta name=\"SKYPE_TOOLBAR\"
+        content=\"SKYPE_TOOLBAR_PARSER_COMPATIBLE\">\n<meta http-equiv=\"X-UA-Compatible\"
+        content=\"IE=EmulateIE7, IE=edge\">\n<!--[if gt IE 9]><!--><link rel=\"stylesheet\"
+        href=\"//money.yandex.ru/lego/css/_money.css?build=322\">\n<!--<![endif]--><!--[if
+        IE 6]><link rel=stylesheet href=\"https://money.yandex.ru/lego/css/_money.ie6.css?build=322\"><![endif]--><!--[if
+        IE 7]><link rel=stylesheet href=\"https://money.yandex.ru/lego/css/_money.ie7.css?build=322\"><![endif]--><!--[if
+        IE 8]><link rel=stylesheet href=\"https://money.yandex.ru/lego/css/_money.ie8.css?build=322\"><![endif]--><!--[if
+        IE 9]><link rel=stylesheet href=\"//money.yandex.ru/lego/css/_money.ie9.css?build=322\"><![endif]--><!--[if
+        gt IE 7]><!--><link rel=\"stylesheet\" href=\"//money.yandex.ru/lego/css/_lego.css?build=322\">\n<!--<![endif]--><!--[if
+        lt IE 8]><link rel=stylesheet href=\"//money.yandex.ru/lego/css/_lego.ie.css?build=322\"><![endif]--><link
+        rel=\"stylesheet\" href=\"//money.yandex.ru/css/ui/ui.css?build=322\">\n<script
+        type=\"text/javascript\" charset=\"utf-8\" src=\"//yandex.st/jquery/1.7.0/jquery.min.js\"></script><script
+        type=\"text/javascript\" charset=\"utf-8\" src=\"//money.yandex.ru/lego/js/_money.js?build=322\"></script><script
+        charset=\"utf-8\" src=\"//money.yandex.ru/lego/js/_lego.js?build=322\"></script><script
+        type=\"text/javascript\" charset=\"utf-8\" src=\"//money.yandex.ru/js/ui/ui.ru.js?build=322\"></script><script
+        type=\"text/javascript\" charset=\"utf-8\" src=\"//money.yandex.ru/js/ui/ui.js?build=322\"></script><script
+        type=\"text/javascript\">//<!--\n;(function(d,e,c,r){e=d.documentElement;c=\"className\";r=\"replace\";e[c]=e[c][r](\"i-ua_js_no\",\"i-ua_js_yes\");if(d.compatMode!=\"CSS1Compat\")e[c]=e[c][r](\"i-ua_css_standart\",\"i-ua_css_quirks\")}(document));\n//--></script><script
+        type=\"text/javascript\">//<!--\nLego.init({login:'',locale:'ru',lang:'ru','content-region':'ru',id:'money','lego-static-host':'\\/\\/yandex.st\\/lego\\/2.10-112','click-host':'\\/\\/clck.yandex.ru','pass-host':'\\/\\/pass.yandex.ru','export-host':'\\/\\/export.yandex.ru','lego-path':'\\/lego','user-region':'ru','yandexuid':'3782039671409400570','retpath':'https:\\/\\/money.yandex.ru\\/select-wallet.xml?requestid=313139303439383835305f62383833333235383632303332386338393034646336653761376431613236636531353333633536','passport-msg':'money','passport-host':'https:\\/\\/passport.yandex.ru','social-host':'https:\\/\\/social.yandex.ru',
+        oframebust: {}})\n//--></script><script type=\"text/javascript\">var ym =
+        ym || {}; ym.i18n = ym.i18n || {}; ym.i18n.lang = 'ru';</script><script type=\"text/javascript\"
+        src=\"//css.yandex.ru/css/inbox.js\"></script><script type=\"text/javascript\">\n\t\t\t(function($)
+        {\n\t\t\t\t$(document).ready(function() {\n\t\t\t\t\tvar runOnHost = 'money.yandex.ru';\n\t\t\t\t\t$('.content
+        a[href^=\"http\"]')\n\t\t\t\t\t\t.filter(function() {\n\t\t\t\t\t\t\treturn
+        (!$(this).attr('onclick')) &&\n\t\t\t\t\t\t\t\t\t($(this).attr('href').indexOf('clck.yandex.ru')
+        == -1) && (\n\t\t\t\t\t\t\t\t\t($(this).attr('href').indexOf(runOnHost) ==
+        -1) ||\n\t\t\t\t\t\t\t\t\t($(this).attr('href').indexOf(runOnHost) > 10)\n\t\t\t\t\t\t\t\t
+        )\n\t\t\t\t\t\t})\n\t\t\t\t\t\t.each(function(i) {\n\t\t\t\t\t\t\t$(this).click(function()
+        {\n\t\t\t\t\t\t\t\tr(this, 'money');\n\t\t\t\t\t\t\t});\n\t\t\t\t\t\t});\n\t\t\t\t});\n\t\t\t})(jQuery);\n\t\t</script><script
+        type=\"text/javascript\" src=\"//money.yandex.ru/js/fp2_morda.js\"></script><script
+        type=\"text/javascript\" src=\"//money.yandex.ru/js/yamoney.utils.js\"></script><script
+        type=\"text/javascript\">\n\t\t\tvar _gaq = _gaq || [];\n\t\t\t_gaq.push(['_setAccount',
+        'UA-19216811-1']);\n\t\t\t_gaq.push(['_setDomainName', '.yandex.ru']);\n\t\t\t_gaq.push(['_addOrganic',
+        'Mail', 'q']);\n\t\t\t_gaq.push(['_addOrganic', 'Nigma', 'q']);\n\t\t\t_gaq.push(['_addOrganic',
+        'Webalta', 'q']);\n\t\t\t_gaq.push(['_addOrganic', 'Aport', 'r']);\n\t\t\t_gaq.push(['_addOrganic',
+        'Gogo', 'q']);\n\t\t\t_gaq.push(['_addOrganic', 'QIP', 'query']);\n\t\t\t_gaq.push(['_setCustomVar',
+        1, 'Auth', 'No', 3]); \n\t\t\n\t\t\t_gaq.push(['_setCustomVar', 4, 'Lang',
+        'ru', 3]);\n\t\t\t_gaq.push(['_trackPageview']);\n\t\t\t(function() { var
+        ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async
+        = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+        'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s); })();\n\t\n\t\t</script><link rel=\"Stylesheet\"
+        href=\"/css/select-wallet.css\">\n<script type=\"text/javascript\" src=\"/js/money.js?v=1\"></script>\n<link
+        rel=\"icon\" href=\"//money.yandex.ru/favicon.ico\" type=\"ico\">\n<meta name=\"apple-itunes-app\"
+        content=\"app-id=468731698\">\n</head>\n<body bgcolor=\"white\" link=\"#0000cc\"
+        marginheight=\"0\" marginwidth=\"0\" topmargin=\"0\" rightmargin=\"0\" bottommargin=\"0\"
+        leftmargin=\"0\" class=\"b-page \">\n<noscript><iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-TWSZGW\"
+        height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n\t\t\t\tnew
+        Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n\t\t\t\tj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n\t\t\t\t'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n\t\t\t\t})(window,document,'script','dataLayer','GTM-TWSZGW');</script><i
+        class=\"b-statcounter\">\n      <i style=\"background:url(//www.tns-counter.ru/V13a****yandex_ru/ru/CP1251/tmsec=yandex_money/0)\"></i>\n
+        \     \n    </i><table onclick=\"return {'l-head':{name:'l-head'}}\" class=\"l-head
+        l-head_light l-head_light\"><tr>\n<td class=\"l-head__g\"><i class=\"l-head__gap\"></i></td>\n<td
+        class=\"l-head__l\"><div class=\"b-head-logo\">\n<map name=\"logo-map\"><area
+        shape=\"rect\" coords=\"98,0,130,40\" href=\"//money.yandex.ru\">\n<area shape=\"rect\"
+        coords=\"0,0,98,40\" href=\"http://yandex.ru\"></map><map name=\"logo-map\"><area
+        shape=\"rect\" coords=\"98,0,130,40\" href=\"//money.yandex.ru\">\n<area shape=\"rect\"
+        coords=\"0,0,98,40\" href=\"http://yandex.ru\"></map><div class=\"b-head-logo__logo\"><span
+        class=\"b-head-logo__link\"><img class=\"b-head-logo__img\" border=\"0\" alt=\"Яндекс\"
+        src=\"//money.yandex.ru/i/b-head-logo.ru.png\" usemap=\"#logo-map\"></span></div>\n<strong
+        class=\"b-head-name b-head-name_type_logo\" onclick=\"return {'b-head-name':{name:'b-head-name'}}\"><a
+        class=\"b-head-name__link\" href=\"//money.yandex.ru/\">деньги</a></strong>\n</div></td>\n<td
+        class=\"l-head__gl\"><i class=\"l-head__gap\"></i></td>\n<td class=\"l-head__c\">\n<!--noindex--><table
+        class=\"b-head-tabs b-head-tabs_mode_live b-head-tabs_type_communication i-bem\"
+        onclick=\"return {'b-head-tabs':{name:'b-head-tabs','default':''}}\"><tr>\n<td
+        class=\"b-head-tabs__item b-head-tabs__tab b-head-tabs__item b-head-tabs__item_id_www\"
+        onclick=\"return {'b-head-tabs__item':{name:'b-head-tabs__item'}}\"><a class=\"b-link
+        b-head-tabs__link\" href=\"http://www.yandex.ru\">Поиск</a></td>\n<td class=\"b-head-tabs__item
+        b-head-tabs__tab b-head-tabs__item b-head-tabs__item_id_mail\" onclick=\"return
+        {'b-head-tabs__item':{name:'b-head-tabs__item'}}\"><a class=\"b-link b-head-tabs__link\"
+        href=\"http://mail.yandex.ru\">Почта</a></td>\n<td class=\"b-head-tabs__item
+        b-head-tabs__tab b-head-tabs__item b-head-tabs__item_id_disk\" onclick=\"return
+        {'b-head-tabs__item':{name:'b-head-tabs__item'}}\"><a class=\"b-link b-head-tabs__link\"
+        href=\"http://disk.yandex.ru\">Диск</a></td>\n<td class=\"b-head-tabs__item
+        b-head-tabs__tab b-head-tabs__item b-head-tabs__item_id_calendar\" onclick=\"return
+        {'b-head-tabs__item':{name:'b-head-tabs__item'}}\"><a class=\"b-link b-head-tabs__link\"
+        href=\"http://calendar.yandex.ru\">Календарь</a></td>\n<td class=\"b-head-tabs__item
+        b-head-tabs__item_state_current b-head-tabs__tab b-head-tabs__item b-head-tabs__item_id_money\"
+        onclick=\"return {'b-head-tabs__item':{name:'b-head-tabs__item'}}\"><strong><a
+        class=\"b-link b-head-tabs__link\" href=\"https://money.yandex.ru\">Деньги</a></strong></td>\n<td
+        class=\"b-head-tabs__item b-head-tabs__tab b-head-tabs__item b-head-tabs__item_id_moikrug\"
+        onclick=\"return {'b-head-tabs__item':{name:'b-head-tabs__item'}}\"><a class=\"b-link
+        b-head-tabs__link\" href=\"http://moikrug.ru\">Мой Круг</a></td>\n<td class=\"b-head-tabs__item
+        b-head-tabs__tab b-head-tabs__item b-head-tabs__item_id_fotki\" onclick=\"return
+        {'b-head-tabs__item':{name:'b-head-tabs__item'}}\"><a class=\"b-link b-head-tabs__link\"
+        href=\"http://fotki.yandex.ru\">Фотки</a></td>\n<td class=\"b-head-tabs__more
+        b-head-tabs__tab\"><div class=\"b-dropdowna b-dropdowna_direction_down b-dropdowna_is-bem_yes
+        i-bem i-bem\" onclick=\"return {'b-dropdowna':{name:'b-dropdowna'}}\">\n<span
+        class=\"b-dropdowna__switcher\" onclick=\"return {'b-dropdowna__switcher':{name:'b-dropdowna__switcher'}}\"><a
+        class=\"b-link b-link_pseudo_yes b-link_is-bem_yes i-bem i-bem\" onclick=\"return
+        {'b-link':{name:'b-link'}}\" href=\"http://www.yandex.ru/all\"><span class=\"b-link__inner\">ещё</span></a></span><div
+        class=\"b-popupa b-popupa_theme_ffffff b-dropdowna__popup\" onclick=\"return
+        {'b-popupa':{name:'b-popupa'}}\">\n<i class=\"b-popupa__tail\"></i><i class=\"b-popupa__shadow\"></i><table
+        class=\"b-popupa__wrap\" cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"b-popupa__wrap-cell\"><div
+        class=\"b-popupa__content\"><div class=\"b-menu b-menu_layout_vert b-dropdowna__menu\"><ul
+        class=\"b-menu__layout-vert\">\n<li class=\"b-menu__layout-vert-cell b-menu__layout-vert-cell_position_first\"><div
+        class=\"b-menu__item b-head-tabs__item b-head-tabs__item b-head-tabs__item_id_auto\"
+        onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a class=\"b-link
+        b-head-tabs__link\" href=\"http://auto.yandex.ru\">Авто</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_afisha\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://afisha.yandex.ru\">Афиша</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_blogs\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://blogs.yandex.ru\">Блоги</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_video\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://video.yandex.ru\">Видео</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_ege\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"//ege.yandex.ru\">ЕГЭ</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_images\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://images.yandex.ru\">Картинки</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_maps\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://maps.yandex.ru\">Карты</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_yaca\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://yaca.yandex.ru\">Каталог</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_market\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://market.yandex.ru\">Маркет</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_music\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://music.yandex.ru\">Музыка</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_news\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://news.yandex.ru\">Новости</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_weather\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://pogoda.yandex.ru\">Погода</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_rabota\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://rabota.yandex.ru\">Работа</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_rasp\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://rasp.yandex.ru\">Расписания</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_slovari\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://slovari.yandex.ru\">Словари</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_sprav\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://sprav.yandex.ru\">Справочник</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_taxi\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"https://taxi.yandex.ru\">Такси</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_tv\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://tv.yandex.ru\">Телепрограмма</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_uslugi\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://uslugi.yandex.ru\">Услуги</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_wow\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://my.ya.ru\">Я.ру</a></div></li>\n<li
+        class=\"b-menu__layout-vert-separator\"><i class=\"b-menu__separator\"></i></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_mobile\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://mobile.yandex.ru\">Мобильный</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell\"><div class=\"b-menu__item b-head-tabs__item
+        b-head-tabs__item b-head-tabs__item_id_soft\" onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a
+        class=\"b-link b-head-tabs__link\" href=\"http://soft.yandex.ru\">Программы</a></div></li>\n<li
+        class=\"b-menu__layout-vert-cell b-menu__layout-vert-cell_position_last\"><div
+        class=\"b-menu__item b-head-tabs__item b-head-tabs__item b-head-tabs__item_id_all\"
+        onclick=\"return {'b-menu__item':{name:'b-menu__item'}}\"><a class=\"b-link
+        b-head-tabs__link\" href=\"http://www.yandex.ru/all\">Все сервисы</a></div></li>\n</ul></div></div></td></tr></table>\n</div>\n</div></td>\n</tr></table>\n<!--/noindex--><div
+        class=\"b-head-search\" onclick=\"return {'b-head-search':{name:'b-head-search'}}\"><div
+        class=\"b-head-search__wrap b-head-search__arrow\">\n<i class=\"b-head-search__arr\"><i
+        class=\"b-head-search__arr-i\"></i></i><form class=\"b-search\" action=\"https://money.yandex.ru/search.xml\"
+        method=\"get\" accept-charset=\"utf-8\">\n<script type=\"text/javascript\">$(function(){
+        $('.b-head-search .b-search').parent().bind('submit', function(){r(this, 'stred/pid=41/cid=71513');});
+        });</script><script type=\"text/javascript\">$(function(){ $('.b-head-search
+        .b-search').parent().bind('submit', function(){r(this, 'stred/pid=41/cid=71513');});
+        });</script><table class=\"b-search__table\">\n<tr>\n          \n        <td
+        class=\"b-search__input\">\n<span class=\"b-form-input b-form-input_theme_grey
+        b-form-input_size_l i-bem\" onclick=\"return {'b-form-input':{name:'b-form-input'}}\">\n
+        \             <span class=\"b-form-input__hint-wrap\"><label for=\"search-input\"
+        class=\"b-form-input__hint\">название товара, услуги или магазина</label></span>\n
+        \             <span class=\"b-form-input__box\"><input class=\"b-form-input__input\"
+        id=\"search-input\" name=\"text\" maxlength=\"400\" tabindex=\"1\"></span>\n
+        \           </span><script type=\"text/javascript\">\n\t\t\t$(function() {\n\t\t\t\tYaMoney.getSuggests({\n\t\t\t\t\turl:\"/ymsuggest.xml\",\n\t\t\t\t\tinput:
+        \".b-head-search  #search-input\",\n\t\t\t\t\tcounter:\"pid=41/cid=71340/path=text\",\n\t\t\t\t\tads_counter:\"pid=41/cid=71340/path=link\"\n\t\t\t\t});\n\t\t\t});\n\t\t</script><script
+        type=\"text/javascript\">\n\t\t\t$(function() {\n\t\t\t\tYaMoney.getSuggests({\n\t\t\t\t\turl:\"/ymsuggest.xml\",\n\t\t\t\t\tinput:
+        \".b-head-search  #search-input\",\n\t\t\t\t\tcounter:\"pid=41/cid=71340/path=text\",\n\t\t\t\t\tads_counter:\"pid=41/cid=71340/path=link\"\n\t\t\t\t});\n\t\t\t});\n\t\t</script>\n</td>\n<td
+        class=\"b-search__button\">\n            \n            <span onclick=\"return
+        {'b-form-button':{name:'b-form-button'}}\" class=\"b-form-button b-form-button_size_l
+        b-form-button_theme_grey-arrow-no-transparent-l b-search__button_light i-bem\"><i
+        class=\"b-form-button__left\"></i><span class=\"b-form-button__content\">\n
+        \               <span class=\"b-form-button__text\">Найти</span>\n              </span><input
+        type=\"submit\" class=\"b-form-button__input i-bem\" tabindex=\"2\" hidefocus=\"true\"
+        value=\"\"></span>\n          </td>\n</tr>\n<tr><td class=\"b-search__under\"
+        colspan=\"2\">\n<a class=\"b-search__advanced\" tabindex=\"3\" id=\"advanced\"
+        href=\"//money.yandex.ru/shops.xml?from=isearch\">все товары и услуги</a><div
+        class=\"b-search__sample b-search__sample_type_long i-bem\" onclick=\"return
+        {'b-search__sample':{name:'b-search__sample'}}\">\n<i class=\"b-search__intro\">Например,</i> <span
+        class=\"b-link b-link_pseudo_yes\" onmousedown=\"Lego.ch('money.search.sample',this)\"><span
+        class=\"b-link__inner\">eve online</span></span>\n</div>\n<script type=\"text/javascript\">\n\t\t\t$('.b-head-search
+        .b-search__sample .b-pseudo-link').click(function() {\n\t\t\t\tr(this, 'stred/pid=41/cid=71516');\n\t\t\t});\n\t\t</script>\n</td></tr>\n</table>\n<input
+        type=\"hidden\" name=\"search\" value=\"shops\"><input type=\"hidden\" name=\"from\"
+        id=\"isug-id\" value=\"isug\" disabled>\n</form>\n</div></div> </td>\n<td
+        class=\"l-head__gr\"><i class=\"l-head__gap\"></i></td>\n<td class=\"l-head__r\">\n<!--noindex--><table
+        class=\"b-head-userinfo i-bem\" onclick=\"return {'b-head-userinfo':{name:'b-head-userinfo'}}\">\n<tr><td
+        class=\"b-head-userinfo__td\"></td></tr>\n<tr><td class=\"b-head-userinfo__td\"
+        colspan=\"2\">\n<div class=\"b-head-userinfo__setup b-head-userinfo__service\"><a
+        href=\"//money.yandex.ru/security/\" class=\"b-head-userinfo__link\">Безопасность</a></div>\n<div
+        class=\"b-head-userinfo__help\"><a href=\"//money.yandex.ru/help.xml\" class=\"b-head-userinfo__link\">Помощь</a></div>\n</td></tr>\n<tr><td
+        class=\"b-head-userinfo__td\" colspan=\"2\">\n<div class=\"b-head-userinfo__setup
+        b-head-userinfo__region\">\n<a href=\"http://tune.yandex.ru/region/?retpath=https%3A%2F%2Fmoney.yandex.ru%2Fselect-wallet.xml%3Frequestid%3D313139303439383835305f62383833333235383632303332386338393034646336653761376431613236636531353333633536\"
+        class=\"b-head-userinfo__link\">Регион</a>: Москва</div>\n<div class=\"lang-switcher-container\">\n
+        \       \n        <div class=\"b-dropdowna b-lang-switcher b-lang-switcher_is-bem_yes
+        i-bem i-bem\" onclick=\"return {'b-lang-switcher':{name:'b-lang-switcher'},'b-dropdowna':{name:'b-dropdowna'}}\">\n<span
+        class=\"b-dropdowna__switcher b-lang-switcher__lang\" onclick=\"return {'b-dropdowna__switcher':{name:'b-dropdowna__switcher'}}\"><span
+        class=\"b-link b-link_pseudo_yes b-lang-switcher__lang i-bem\" onclick=\"return
+        {'b-link':{name:'b-link'}}\"><span class=\"b-link__inner\"><img class=\"b-icon
+        b-lang-switcher__flag b-country-flag b-country-flag_size-16_ru\" src=\"//yandex.st/lego/_/La6qi18Z8LwgnZdsAr1qy1GwCwo.gif\"
+        alt=\"ru\" title=\"\"><span class=\"b-lang-switcher__lang-name\">Ru</span></span></span></span><div
+        class=\"b-popupa b-popupa_theme_ffffff b-popupa_direction_down-left b-popupa_is-bem_yes
+        i-bem b-dropdowna__popup\" onclick=\"return {'b-popupa':{name:'b-popupa'}}\">\n<i
+        class=\"b-popupa__tail\"></i><i class=\"b-popupa__shadow\"></i><table class=\"b-popupa__wrap\"
+        cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"b-popupa__wrap-cell\"><div
+        class=\"b-popupa__content b-lang-switcher__popup-content\">\n              \n
+        \             \n              <div class=\"b-menu b-menu_layout_vert b-dropdowna__menu
+        b-lang-switcher__menu\"><ul class=\"b-menu__layout-vert\">\n<li class=\"b-menu__layout-vert-cell
+        b-menu__layout-vert-cell_position_first\"><div class=\"b-menu__item\"><span
+        class=\"b-lang-switcher__lang\"><img class=\"b-icon b-lang-switcher__flag
+        b-country-flag b-country-flag_size-16_ru\" src=\"//yandex.st/lego/_/La6qi18Z8LwgnZdsAr1qy1GwCwo.gif\"
+        alt=\"ru\" title=\"\"><span class=\"b-lang-switcher__lang-name\">Ru</span></span></div></li>\n<li
+        class=\"b-menu__layout-vert-cell b-menu__layout-vert-cell_position_last\"><div
+        class=\"b-menu__item\"><a class=\"b-lang-switcher__lang\" onclick=\"r(this,
+        'stred/pid=41/cid=72152/path=en')\" href=\"//tune.yandex.ru/api/lang/v1.1/save.xml?intl=en&amp;retpath=https%3A%2F%2Fmoney.yandex.ru%2Fselect-wallet.xml%3Frequestid%3D313139303439383835305f62383833333235383632303332386338393034646336653761376431613236636531353333633536&amp;sk=y74205eba58d8f3587d4f1c47a6bcaef6\"><img
+        class=\"b-icon b-lang-switcher__flag b-country-flag b-country-flag_size-16_en\"
+        src=\"//yandex.st/lego/_/La6qi18Z8LwgnZdsAr1qy1GwCwo.gif\" alt=\"en\" title=\"\"><span
+        class=\"b-lang-switcher__lang-name\">En</span></a></div></li>\n</ul></div>\n
+        \           </div></td></tr></table>\n</div>\n</div>\n      </div>\n</td></tr>\n<tr><td
+        class=\"b-head-userinfo__td\" colspan=\"2\"></td></tr>\n</table>\n<!--/noindex--><script>\n
+        \ \n  $(function() {\n  \t$('.b-head-userinfo__service .b-head-userinfo__link').on('click',
+        function() {\n  \t\tr(this, 'stred/pid=41/cid=70087')\n  \t});\n  \t$('.b-head-userinfo__help
+        .b-head-userinfo__link').on('click', function() {\n  \t\tr(this, 'stred/pid=41/cid=70088')\n
+        \ \t});\n  \t$('.b-head-userinfo__exit .b-head-userinfo__link').on('click',
+        function() {\n  \t\tr(this, 'stred/pid=41/cid=70091')\n  \t});\n  });\n  </script>\n</td>\n<td
+        class=\"l-head__g\"><i class=\"l-head__gap\"></i></td>\n</tr></table>\n<table
+        class=\"l-page l-page_layout_16-60-24 \"><tbody><tr>\n<td class=\"l-page__gap\"><i></i></td>\n<td
+        class=\"l-page__left\"><img class=\"l-page__empty-column-content\" alt=\"\"
+        src=\"/i/empty.gif\"></td>\n<td class=\"l-page__center\">\n<div class=\"sw-paydescr\">\n<script
+        type=\"text/javascript\">Lego.cp(41,71137,'expiriment');</script><div class=\"dv1\"><table
+        border=\"0\" width=\"100%\" cellspacing=\"8\" cellpadding=\"0\" class=\"content
+        sw-paydescr__wrap-table\"><tr valign=\"top\">\n<td class=\"body\" width=\"38%\"><table
+        border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"content\"><td class=\"body\"><p>Доступ
+        к счету для внешнего приложения</p></td></table></td>\n<td class=\"body\"
+        width=\"62%\"><p class=\"sw-auth\">Чтобы продолжить, введите свой логин и
+        пароль на Яндексе. <span class=\"sw-next\">Или откройте счет, если у вас его
+        еще нет.</span></p></td>\n</tr></table></div>\n</div>\n<div class=\"sw-auth-domik\"><form
+        class=\"b-domik b-domik_type_bigform b-domik_design-version_1 i-bem\" accept-charset=\"utf-8\"
+        action=\"https://passport.yandex.ru/passport?mode=auth&amp;from=money&amp;retpath=https%3A%2F%2Fmoney.yandex.ru%2Fselect-wallet.xml%3Fsw-is-stored%3Dtrue%26requestid%3D313139303439383835305f62383833333235383632303332386338393034646336653761376431613236636531353333633536\"
+        method=\"post\" onclick=\"return {'b-domik':{name:'b-domik_type_bigform',title:'\\n
+        \     Вход\\n    ',register:''}}\">\n<i class=\"b-domik__roof\"></i><table
+        class=\"b-domik__shadow\" cellspacing=\"0\">\n<tr>\n<td class=\"b-domik__shadow__lt\"> </td>\n<td
+        class=\"b-domik__shadow__t\"></td>\n<td class=\"b-domik__shadow__rt\"> </td>\n</tr>\n<tr>\n<td
+        class=\"b-domik__shadow__l\"> </td>\n<td class=\"b-domik__shadow__m\"><div
+        class=\"b-domik__form\">\n<div class=\"b-domik__title\">Вход</div>\n<div class=\"b-domik__username\"><span
+        class=\"b-form-input b-form-input_theme_grey b-form-input_size_xl b-domik__input
+        i-bem\" onclick=\"return {'b-form-input':{name:'b-form-input'}}\">\n        \n
+        \       \n        <span class=\"b-form-input__hint-wrap\"><label for=\"id1165424450274\"
+        class=\"b-form-input__hint\">\n          логин\n        </label></span>\n
+        \       <span class=\"b-form-input__box\"><input class=\"b-form-input__input\"
+        id=\"id1165424450274\" name=\"login\" tabindex=\"100\"></span>\n      </span></div>\n<div
+        class=\"b-domik__password\"><span class=\"b-form-input b-form-input_theme_grey
+        b-form-input_size_xl b-domik__input i-bem\" onclick=\"return {'b-form-input':{name:'b-form-input'}}\">\n
+        \       \n        \n        <span class=\"b-form-input__hint-wrap\"><label
+        for=\"id1165436775236\" class=\"b-form-input__hint\">\n          пароль\n
+        \       </label></span>\n        <span class=\"b-form-input__box\"><input
+        class=\"b-form-input__input\" id=\"id1165436775236\" type=\"password\" name=\"passwd\"
+        tabindex=\"101\"></span>\n      </span></div>\n<div class=\"b-domik__haunter\">\n<span
+        class=\"b-form-checkbox b-form-checkbox_size_l b-form-checkbox_theme_grey-l
+        b-domik__checkbox i-bem\" onclick=\"return {'b-form-checkbox':{name:'b-form-checkbox'}}\"><span
+        class=\"b-form-checkbox__inner\"><input class=\"b-form-checkbox__checkbox
+        i-bem\" type=\"checkbox\" id=\"id1165428415921\" name=\"twoweeks\" value=\"yes\"
+        tabindex=\"102\"><i class=\"b-form-checkbox__bg\"><img class=\"b-form-checkbox__tick\"
+        title=\"\" src=\"//yandex.st/lego/_/La6qi18Z8LwgnZdsAr1qy1GwCwo.gif\" alt=\"\"></i></span><label
+        for=\"id1165428415921\" class=\"b-form-checkbox__label\">\n        запомнить
+        меня\n      </label></span> <span class=\"b-domik__help\">(<a class=\"b-domik__link\"
+        tabindex=\"106\" href=\"http://help.yandex.ru/passport/?id=922493\">что это</a>)</span>\n</div>\n<div
+        class=\"b-domik__button\"><span onclick=\"return {'b-form-button':{name:'b-form-button'}}\"
+        tabindex=\"103\" class=\"b-form-button b-form-button_size_xl b-form-button_theme_grey-xl
+        i-bem\"><i class=\"b-form-button__left\"></i><span class=\"b-form-button__content\">\n
+        \       <span class=\"b-form-button__text\">\n          Войти\n        </span>\n
+        \     </span><input type=\"submit\" class=\"b-form-button__input\" hidefocus=\"true\"
+        value=\"\"></span></div>\n<script>$(function() {$('.b-domik_type_bigform input[type=submit]').on('click',
+        function() {r(this,'stred/pid=41/cid=71138/path=expiriment')});});</script><script>$(function()
+        {$('.b-domik_type_bigform input[type=submit]').on('click', function() {r(this,'stred/pid=41/cid=71138/path=expiriment')});});</script><div
+        class=\"b-domik__social\" onclick=\"return {'b-domik__social':{'size':24}}\"></div>\n<div
+        class=\"b-domik__register\"><a class=\"b-domik__link\" tabindex=\"104\" href=\"https://money.yandex.ru/reg/?retpath=https%3A%2F%2Fmoney.yandex.ru%2Fselect-wallet.xml%3Fsw-is-stored%3Dtrue%26requestid%3D313139303439383835305f62383833333235383632303332386338393034646336653761376431613236636531353333633536\">Открыть
+        кошелек</a></div>\n<script>$(function() {$('.b-domik_type_bigform .b-domik__register
+        .b-domik__link').on('click', function() {r(this,'stred/pid=41/cid=71139/path=expiriment')});});</script><script>$(function()
+        {$('.b-domik_type_bigform .b-domik__register .b-domik__link').on('click',
+        function() {r(this,'stred/pid=41/cid=71139/path=expiriment')});});</script><div
+        class=\"b-domik__remember\"><a class=\"b-domik__remind\" href=\"https://passport.yandex.ru/passport?mode=restore\"
+        tabindex=\"105\">Напомнить пароль</a></div>\n<script>$(function() {$('.b-domik_type_bigform
+        .b-domik__remind').on('click', function() {r(this,'stred/pid=41/cid=71140/path=expiriment')});});</script><script>$(function()
+        {$('.b-domik_type_bigform .b-domik__remind').on('click', function() {r(this,'stred/pid=41/cid=71140/path=expiriment')});});</script>\n</div></td>\n<td
+        class=\"b-domik__shadow__r\"> </td>\n</tr>\n<tr>\n<td class=\"b-domik__shadow__lb\"> </td>\n<td
+        class=\"b-domik__shadow__b\"></td>\n<td class=\"b-domik__shadow__rb\"> </td>\n</tr>\n</table>\n</form></div>\n</td>\n<td
+        class=\"l-page__right\"><img class=\"l-page__empty-column-content\" alt=\"\"
+        src=\"/i/empty.gif\"></td>\n<td class=\"l-page__gap\"><i></i></td>\n</tr></tbody></table>\n<div
+        style=\"display:none;\">\n<script type=\"text/javascript\">\n\t\t\t(function
+        (d, w, c) {\n\t\t\t\t(w[c] = w[c] || []).push(function() {\n\t\t\t\t\ttry
+        {\n\t\t\t\t\t\tw.yaCounter152220 = new Ya.Metrika({id:152220,\n\t\t\t\t\t\t\t\twebvisor:true,\n\t\t\t\t\t\t\t\tclickmap:true,\n\t\t\t\t\t\t\t\ttrackLinks:true,\n\t\t\t\t\t\t\t\taccurateTrackBounce:true});\n\t\t\t\t\t\t\n\n\t\t\ttry
+        {\n\t\t\t\tvar yametricsGoal = \"SW_Domik_GOAL\";\n\t\t\t\tif (yametricsGoal)
+        {\n\t\t\t\t\tvar yametricsGoalParams = {};\n\t\t\t\t\tif(typeof(yametricsGoalParams)
+        !== 'object') {\n\t\t\t\t\t\tyametricsGoalParams = {};\n\t\t\t\t\t}\n\t\t\t\t\tyaCounter152220.reachGoal(yametricsGoal,
+        yametricsGoalParams);\n\t\t\t\t}\n\t\t\t} catch(e) {}\n\t\n\t\t\t\t\t} catch(e)
+        {}\n\t\t\t\t});\n\t\t\t\tvar n = d.getElementsByTagName(\"script\")[0],\n\t\t\t\t\ts
+        = d.createElement(\"script\"),\n\t\t\t\t\tf = function () { n.parentNode.insertBefore(s,
+        n); };\n\t\t\t\ts.type = \"text/javascript\";\n\t\t\t\ts.async = true;\n\t\t\t\ts.src
+        = (d.location.protocol == \"https:\" ? \"https:\" : \"http:\") + \"//mc.yandex.ru/metrika/watch.js\";\n\n\t\t\t\tif
+        (w.opera == \"[object Opera]\") {\n\t\t\t\t\td.addEventListener(\"DOMContentLoaded\",
+        f, false);\n\t\t\t\t} else { f(); }\n\t\t\t})(document, window, \"yandex_metrika_callbacks\");\n\t\t\t</script><noscript><div><img
+        src=\"//mc.yandex.ru/watch/152220\" style=\"position:absolute; left:-9999px;\"
+        alt=\"\"></div></noscript>\n</div>\n<table width=\"100%\" border=\"0\" cellspacing=\"0\"
+        cellpadding=\"0\" class=\"footer\"><tr valign=\"top\">\n<td width=\"20%\"><div
+        class=\"links\"><div class=\"offer\"><a href=\"https://money.yandex.ru/doc.xml?id=522764\"
+        onclick=\"r(this, 'stred/pid=41/cid=71074')\">Пользовательское соглашение</a></div></div></td>\n<td
+        width=\"30%\" class=\"sitemenu\"><div class=\"links\">\n<div class=\"links\"><a
+        href=\"https://money.yandex.ru/sessions.xml\" onclick=\"r(this, 'stred/pid=41/cid=71518')\">Последнее посещение</a></div>\n<div
+        class=\"links\">Позвонить нам +7 (495) 974 3586 или <a href=\"https://money.yandex.ru/feedback/\"
+        onclick=\"r(this, 'stred/pid=41/cid=70101')\" style=\"margin-right:0\">написать</a>\n</div>\n</div></td>\n<td
+        width=\"15%\" class=\"sitemenu\"><div class=\"links\">\n<div class=\"shift\">\n<a
+        href=\"http://mobile.yandex.ru/apps/money/\" onclick=\"r(this, 'stred/pid=41/cid=72307')\">Мобильные
+        приложения</a> \n\t\t\t\t\t\t</div>\n<div class=\"shift\"><a href=\"http://tune.yandex.ru/api/my/v1.0/my.xml?block=44&amp;param=0&amp;retpath=https%3A%2F%2Fm.money.yandex.ru&amp;sk=y74205eba58d8f3587d4f1c47a6bcaef6\"
+        onclick=\"r(this, 'stred/pid=41/cid=70099')\">Мобильная версия</a></div>\n</div></td>\n<td
+        width=\"15%\" class=\"sitemenu\"><div class=\"links\">\n<div class=\"shift\">\n<a
+        href=\"https://money.yandex.ru/get/\" onclick=\"r(this, 'stred/pid=41/cid=70086')\">Магазинам</a> \n\t\t\t\t\t\t</div>\n<div
+        class=\"shift\"><a href=\"http://api.yandex.ru/money/\" onclick=\"r(this,
+        'stred/pid=41/cid=71443')\">Разработчикам</a></div>\n</div></td>\n<td width=\"20%\"
+        class=\"copyright\"><div class=\"copyright\" style=\"padding-left:0\">\n<div>\n<span>© 2002—2014</span>
+        «<a href=\"http://www.yandex.ru/\">Яндекс</a>»\n\t</div>© 2007—2014 ООО НКО «Яндекс.Деньги»
+        <div class=\"links\">\n<a href=\"https://money.yandex.ru/about.xml\" onclick=\"r(this,
+        'stred/pid=41/cid=70100')\">О проекте</a>  <a href=\"https://money.yandex.ru/eng/about.xml\"
+        onclick=\"r(this, 'stred/pid=41/cid=71066')\">About</a>\n</div>\n</div></td>\n</tr></table>\n<div
+        style=\"position:absolute; left: -100px; top: -100px; width: 1px; height:
+        1px; overflow: hidden;\">\n<p style=\"background:url(https://s4.money.yandex.net/fp/clear.png?org_id=fsymclue&amp;session_id=9F8224B38D170BB38ECA4E4A343EC7BA&amp;m=1)\"></p>\n<img
+        src=\"https://s4.money.yandex.net/fp/clear.png?org_id=fsymclue&amp;session_id=9F8224B38D170BB38ECA4E4A343EC7BA&amp;m=2\"
+        alt=\"\"><script src=\"https://s4.money.yandex.net/fp/check.js?org_id=fsymclue&amp;session_id=9F8224B38D170BB38ECA4E4A343EC7BA\"
+        type=\"text/javascript\"></script><object type=\"application/x-shockwave-flash\"
+        data=\"https://s4.money.yandex.net/fp/fp.swf?org_id=fsymclue&amp;session_id=9F8224B38D170BB38ECA4E4A343EC7BA\"
+        width=\"1\" height=\"1\" id=\"obj_id\"><param name=\"movie\" value=\"https://s4.money.yandex.net/fp/fp.swf?org_id=fsymclue&amp;session_id=9F8224B38D170BB38ECA4E4A343EC7BA\">\n<div></div></object>\n</div><script
+        type=\"text/javascript\">\n\t\t\t\t(function() {\n\t\t\t\t\tvar s;\n\t\t\t\t\tvar
+        e;\n\t\t\t\t\ts = document.createElement('script');\n\t\t\t\t\ts.type = 'text/javascript';\n\t\t\t\t\ts.src
+        = '//a1.vdna-assets.com/analytics.js';\n\t\t\t\t\ts.async = true;\n\t\t\t\t\te
+        = document.getElementsByTagName('body')[0];\n\t\t\t\t\te.insertBefore(s, e.lastChild);\n\t\t\t\t\tthis.VDNA
+        = this.VDNA || {};\n\t\t\t\t\tthis.VDNA.queue = this.VDNA.queue || [];\n\t\t\t\t})();\n\n\t\t\t\tVDNA.queue.push({\n\t\t\t\t\tapiKey
+        : \"yandexmoney1393582641971\",\n\t\t\t\t\tmethod : \"reportPageView\"\n\t\t\t\t});\n\t\t\t</script>\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Sat, 30 Aug 2014 12:09:30 GMT
+- request:
+    method: post
+    uri: https://sp-money.yandex.ru/oauth/token
+    body:
+      encoding: UTF-8
+      string: code=6D7BD5AEAF7DD16E9EC1B69A58681EEC79CA8A7F0D88FB779C84B86C0EF25C31C6A803440CD3F1062FDD77676302305DC0E835D343313D4D16B90DCD8D6FCA8D9CFB3A9FC160D931EF9F317077CF0A93C5665EF0FB62D2CCC6AD1160A769330082D1AE23E23E330C5D7E908A9C3F905555340F075D5C2EB0FEA44CA2183150E9&client_id=84ED7836D6C0273670C2BA5616AFC9B810F56C10E1F272467E0C158B6232E0E8&grant_type=authorization_code&redirect_uri=
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 30 Aug 2014 12:10:03 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=120
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - max-age=0, proxy-revalidate
+      Expires:
+      - Sat, 30 Aug 2014 12:10:03 GMT
+      Set-Cookie:
+      - yandexuid=9855014301409400603; domain=.yandex.ru; path=/; expires=Tue, 19
+        Jan 2038 03:14:07 GMT
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"41001565326286.6837FE2F85C290E0F7ABB0AD7FAD9FC23D0BFF3904254F496626FBB7F9B759B0291CB72C4DB4240004CB859CA69DC809B3BABF9008DFD5B658AC5CD09C5B5B9A50265423464A49D2F20374F9A4DC276ECC134E13C0C3AC60865BD7CAADD952564FC8F97841A6369AFB28FEF0A1531242E2955ECFB7CE3BD531067D1BA734299C"}'
+    http_version: 
+  recorded_at: Sat, 30 Aug 2014 12:10:03 GMT
+- request:
+    method: post
+    uri: https://money.yandex.ru/api/account-info
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Bearer 41001565326286.6837FE2F85C290E0F7ABB0AD7FAD9FC23D0BFF3904254F496626FBB7F9B759B0291CB72C4DB4240004CB859CA69DC809B3BABF9008DFD5B658AC5CD09C5B5B9A50265423464A49D2F20374F9A4DC276ECC134E13C0C3AC60865BD7CAADD952564FC8F97841A6369AFB28FEF0A1531242E2955ECFB7CE3BD531067D1BA734299C
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 30 Aug 2014 12:30:42 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '282'
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=120
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+    body:
+      encoding: UTF-8
+      string: '{"account":"41001565326286","balance":48.98,"currency":"643","avatar":{"ts":"2012-05-02T17:22:59.000+04:00","url":"https://avatars.yandex.net/get-yamoney-profile/yamoney-profile-56809635-2/normal?1335964979000"},"account_type":"personal","identified":false,"account_status":"named"}'
+    http_version: 
+  recorded_at: Sat, 30 Aug 2014 12:30:42 GMT
+recorded_with: VCR 2.6.0

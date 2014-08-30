@@ -1,15 +1,15 @@
 require "yandex_money/api/version"
 require "httparty"
 require "uri"
+require "ostruct"
 
 module YandexMoney
   class Api
     include HTTParty
 
     base_uri "https://sp-money.yandex.ru"
-    # authorization code. Needed to obtain token
-    attr_accessor :code
-    attr_accessor :client_id
+
+    attr_accessor :client_url, :code, :token
 
     # Returns url to get token
     def initialize(client_id, redirect_uri, scope)
@@ -23,14 +23,11 @@ module YandexMoney
       )
     end
 
-    def client_url
-      @client_url
-    end
-
+    # obtains and saves token from code
     def obtain_token
-      raise 'Authorization code not provided' if code == nil
+      raise "Authorization code not provided" if code == nil
       uri = "/oauth/token"
-      self.class.post(uri, body: {
+      @token = self.class.post(uri, body: {
         code: @code,
         client_id: @client_id,
         grant_type: "authorization_code",
@@ -38,7 +35,17 @@ module YandexMoney
       }).parsed_response["access_token"]
     end
 
+    # obtains account info
+    def account_info
+      uri = "/api/account-info"
+      OpenStruct.new self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
+        "Authorization" => "Bearer #{@token}",
+        "Content-Type" => "application/x-www-form-urlencoded"
+      }).parsed_response
+    end
+
     private
+
     def send_authorize_request(options)
       uri = "/oauth/authorize"
       self.class.post(uri, body: options).request.path.to_s
