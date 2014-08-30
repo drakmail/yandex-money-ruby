@@ -21,6 +21,12 @@ Or install it yourself as:
 ### 1. Initialize API
 
 ```ruby
+# If TOKEN was obtained previosly
+api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history", TOKEN)
+```
+
+```ruby
+# If TOKEN need to be obtained
 api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history")
 ```
 
@@ -44,6 +50,7 @@ token = api.obtain_token # token contains valid client token
 Getting information about the status of the user account. Required permissions: `account-info`.
 
 ```ruby
+api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history", TOKEN)
 api.account_info
 #<OpenStruct account="41001565326286", balance=48.98, currency="643", avatar={"ts"=>"2012-05-02T17:22:59.000+04:00", "url"=>"https://avatars.yandex.net/get-yamoney-profile/yamoney-profile-56809635-2/normal?1335964979000"}, account_type="personal", identified=false, account_status="named">
 ```

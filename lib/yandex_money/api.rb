@@ -12,9 +12,10 @@ module YandexMoney
     attr_accessor :client_url, :code, :token
 
     # Returns url to get token
-    def initialize(client_id, redirect_uri, scope)
+    def initialize(client_id, redirect_uri, scope, token = nil)
       @client_id = client_id
       @redirect_uri = redirect_uri
+      @token = token
       @client_url = send_authorize_request(
         "client_id" => @client_id,
         "response_type" => "code",

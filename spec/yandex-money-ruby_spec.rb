@@ -29,10 +29,7 @@ describe YandexMoney::Api do
     # http://api.yandex.ru/money/doc/dg/reference/account-info.xml
     it "should return account info" do
       VCR.use_cassette "get account info" do
-        api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history")
-        api.code = "6D7BD5AEAF7DD16E9EC1B69A58681EEC79CA8A7F0D88FB779C84B86C0EF25C31C6A803440CD3F1062FDD77676302305DC0E835D343313D4D16B90DCD8D6FCA8D9CFB3A9FC160D931EF9F317077CF0A93C5665EF0FB62D2CCC6AD1160A769330082D1AE23E23E330C5D7E908A9C3F905555340F075D5C2EB0FEA44CA2183150E9"
-        api.obtain_token
-        puts "token: #{api.token}"
+        api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history", TOKEN)
         info = api.account_info
         expect(info.account).to eq("41001565326286")
       end
