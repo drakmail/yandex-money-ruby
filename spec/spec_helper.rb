@@ -13,5 +13,5 @@ VCR.configure do |c|
 end
 
 RSpec.configure do |config|
-  # some (optional) config here
+  Dir["./spec/support/**/*.rb"].each {|f| require f}
 end
