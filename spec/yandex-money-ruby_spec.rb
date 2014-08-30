@@ -76,7 +76,7 @@ describe YandexMoney::Api do
         end
       end
 
-      it "success request payment to an account" do
+      it "success request payment" do
         VCR.use_cassette "success request payment to an account" do
           server_response = @api.request_payment(
             pattern_id: "p2p",
@@ -89,6 +89,19 @@ describe YandexMoney::Api do
             test_result: "success"
           )
           expect(server_response.status).to eq "success"
+        end
+      end
+
+      it "raise exception without requered params when request payment" do
+        VCR.use_cassette "request payment to an account with failure" do
+          expect {
+            @api.request_payment(
+              pattern_id: "p2p",
+              to: "410011285611534",
+              test_payment: "true",
+              test_result: "success"
+            )
+          }.to raise_error "Illegal params"
         end
       end
     end
