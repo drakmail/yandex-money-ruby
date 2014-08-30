@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://money.yandex.ru/api/request-payment
+    body:
+      encoding: UTF-8
+      string: pattern_id=p2p&to=410011285611534&amount=1.0&comment=test%20payment%20comment%20from%20yandex-money-ruby&message=test%20payment%20message%20from%20yandex-money-ruby&label=testPayment&test_payment=true&test_result=success
+    headers:
+      Cookie:
+      - yandexuid=6270165461409412506
+      Authorization:
+      - Bearer 41001565326286.0BB266A33F9F3F6C27B199C98B8FE1F495340C2FC30A80A732D5DE2208E5C51688D71B1284A279C97FF690AC5E991A8809B8733FE126A06A1381EC8A6BB157268DB52B4A2E1E5A39D45BD8F6F4FA7E4D04D3677BF6EFD7350B40E1C0764A17F62CF9CB1A590F7784ABBC760C71CAC7C53D867B3C1D18A1FF38472F0E7ACB2A34
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 30 Aug 2014 15:40:29 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '323'
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=120
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+    body:
+      encoding: UTF-8
+      string: '{"status":"success","contract":"The generated test outgoing money transfer
+        to 410011285611534, amount 1.0","recipient_account_type":"personal","recipient_account_status":"anonymous","request_id":"test-p2p","test_payment":"true","contract_amount":1.00,"money_source":{"wallet":{"allowed":true}},"recipient_identified":false}'
+    http_version: 
+  recorded_at: Sat, 30 Aug 2014 15:40:29 GMT
+recorded_with: VCR 2.6.0

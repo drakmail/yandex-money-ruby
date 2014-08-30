@@ -40,6 +40,7 @@ module YandexMoney
 
     # obtains account info
     def account_info
+      check_token
       uri = "/api/account-info"
       OpenStruct.new self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
         "Authorization" => "Bearer #{@token}",
@@ -49,6 +50,7 @@ module YandexMoney
 
     # obtains operation history
     def operation_history
+      check_token
       uri = "/api/operation-history"
       OpenStruct.new self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
         "Authorization" => "Bearer #{@token}",
@@ -58,6 +60,7 @@ module YandexMoney
 
     # obtains operation details
     def operation_details(operation_id)
+      check_token
       raise "Provide operation_id" if operation_id == nil
       uri = "/api/operation-details"
       request = self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
@@ -77,7 +80,29 @@ module YandexMoney
       end
     end
 
+    def request_payment(options)
+      check_token
+      uri = "/api/request-payment"
+      request = self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
+        "Authorization" => "Bearer #{@token}",
+        "Content-Type" => "application/x-www-form-urlencoded"
+      }, body: options)
+
+      raise "Insufficient Scope" if request.response.code == "403"
+
+      response = OpenStruct.new request.parsed_response
+      if response.error
+        raise response.error.gsub(/_/, " ").capitalize
+      else
+        response
+      end
+    end
+
     private
+
+    def check_token
+      raise "Token not provided" unless @token
+    end
 
     def send_authorize_request(options)
       uri = "/oauth/authorize"
