@@ -2,7 +2,6 @@ require "spec_helper"
 
 CLIENT_ID = "84ED7836D6C0273670C2BA5616AFC9B810F56C10E1F272467E0C158B6232E0E8"
 REDIRECT_URI = "http://drakmail.github.io/yandex-money-ruby"
-TOKEN = "41001565326286.6837FE2F85C290E0F7ABB0AD7FAD9FC23D0BFF3904254F496626FBB7F9B759B0291CB72C4DB4240004CB859CA69DC809B3BABF9008DFD5B658AC5CD09C5B5B9A50265423464A49D2F20374F9A4DC276ECC134E13C0C3AC60865BD7CAADD952564FC8F97841A6369AFB28FEF0A1531242E2955ECFB7CE3BD531067D1BA734299C"
 
 describe YandexMoney::Api do
   describe "auth" do
@@ -26,20 +25,43 @@ describe YandexMoney::Api do
   end
 
   describe "get account info" do
+    before :all do
+      VCR.use_cassette "obtain token for get account info" do
+        @api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history operation-details")
+        @api.code = "39041180F6631E2B56DD0058F75A34C7504226178A45D624313495ECD417DCC3AA6CBF1B010E65BB09F3F9EB5AE63452129BAE2B732B7457C33BE6B2039B7B60A8058D2A387729A601DC817BBFB27CB0CC2D65E3C70997D981AC0E31F18CF32C0675DFD461E2F5C5639B75AC0E5074CE64FCF4546447BBDC566E3459FB1B3C3B"
+        @api.obtain_token
+      end
+    end
+
     # http://api.yandex.ru/money/doc/dg/reference/account-info.xml
     it "should return account info" do
       VCR.use_cassette "get account info" do
-        api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history", TOKEN)
-        info = api.account_info
+        info = @api.account_info
         expect(info.account).to eq("41001565326286")
       end
     end
 
+    # http://api.yandex.com/money/doc/dg/reference/operation-history.xml
     it "should return operation history" do
       VCR.use_cassette "get operation history" do
-        api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history", TOKEN)
-        info = api.operation_history
-        expect(info.operations.count).to eq 30
+        history = @api.operation_history
+        expect(history.operations.count).to eq 30
+      end
+    end
+
+    # http://api.yandex.com/money/doc/dg/reference/operation-details.xml
+    describe "operation details" do
+      it "should return valid operation details" do
+        VCR.use_cassette "get operation details" do
+          details = @api.operation_details "462449992116028008"
+          expect(details.status).to eq "success"
+        end
+      end
+
+      it "should raise exception if operation_id is wrong" do
+        VCR.use_cassette "get wrong operation details" do
+          expect { @api.operation_details "unknown" }.to raise_error "Illegal param operation id"
+        end
       end
     end
   end

@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://money.yandex.ru/api/account-info
+    uri: https://money.yandex.ru/api/operation-details
     body:
       encoding: UTF-8
-      string: ''
+      string: operation_id=unknown
     headers:
       Authorization:
       - Bearer 41001565326286.42598500AE42A3672ED59463D02EC424B7CD31B416309A392125FA45E79290F3FCFA2CF178D314A0B396659EEAC938BDF8480229BC55CDFD039E66AFFCF5109B44F306D80B6B88FFEF8E87C2C1199949B5CD43B422BB6C2AD857CB9B0AB0FAF316B864F5870BB19C37B08CAEDDB6642401119F1CE8A1D3C23F54EE145A4933A3
@@ -19,11 +19,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 30 Aug 2014 13:11:08 GMT
+      - Sat, 30 Aug 2014 13:15:07 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '282'
+      - '38'
       Connection:
       - keep-alive
       Keep-Alive:
@@ -34,7 +34,7 @@ http_interactions:
       - no-cache
     body:
       encoding: UTF-8
-      string: '{"account":"41001565326286","balance":48.98,"currency":"643","avatar":{"ts":"2012-05-02T17:22:59.000+04:00","url":"https://avatars.yandex.net/get-yamoney-profile/yamoney-profile-56809635-2/normal?1335964979000"},"account_type":"personal","identified":false,"account_status":"named"}'
+      string: '{"error":"illegal_param_operation_id"}'
     http_version: 
-  recorded_at: Sat, 30 Aug 2014 13:11:08 GMT
+  recorded_at: Sat, 30 Aug 2014 13:15:07 GMT
 recorded_with: VCR 2.6.0

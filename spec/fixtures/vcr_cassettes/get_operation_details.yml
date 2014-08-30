@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://money.yandex.ru/api/account-info
+    uri: https://money.yandex.ru/api/operation-details
     body:
       encoding: UTF-8
-      string: ''
+      string: operation_id=462449992116028008
     headers:
       Authorization:
       - Bearer 41001565326286.42598500AE42A3672ED59463D02EC424B7CD31B416309A392125FA45E79290F3FCFA2CF178D314A0B396659EEAC938BDF8480229BC55CDFD039E66AFFCF5109B44F306D80B6B88FFEF8E87C2C1199949B5CD43B422BB6C2AD857CB9B0AB0FAF316B864F5870BB19C37B08CAEDDB6642401119F1CE8A1D3C23F54EE145A4933A3
@@ -23,7 +23,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '282'
+      - '411'
       Connection:
       - keep-alive
       Keep-Alive:
@@ -33,8 +33,18 @@ http_interactions:
       Cache-Control:
       - no-cache
     body:
-      encoding: UTF-8
-      string: '{"account":"41001565326286","balance":48.98,"currency":"643","avatar":{"ts":"2012-05-02T17:22:59.000+04:00","url":"https://avatars.yandex.net/get-yamoney-profile/yamoney-profile-56809635-2/normal?1335964979000"},"account_type":"personal","identified":false,"account_status":"named"}'
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJvcGVyYXRpb25faWQiOiI0NjI0NDk5OTIxMTYwMjgwMDgiLCJ0aXRsZSI6
+        ItCS0L7Qt9Cy0YDQsNGCINGB0YDQtdC00YHRgtCyINC+0YI6IiwiYW1vdW50
+        IjoxLjAwLCJkaXJlY3Rpb24iOiJpbiIsImRhdGV0aW1lIjoiMjAxNC0wOC0y
+        N1QxMDoxOTo1MloiLCJzdGF0dXMiOiJzdWNjZXNzIiwidHlwZSI6ImRlcG9z
+        aXRpb24iLCJkZXRhaWxzIjoi0J7RgtC80LXQvdCwINC+0L/Qu9Cw0YLRiyDQ
+        v9C+INCx0LDQvdC60L7QstGB0LrQvtC5INC60LDRgNGC0LUg0K/QvdC00LXQ
+        utGBLtCU0LXQvdC10LNcbiAsIDU0MTEsICwgXG7QndC+0LzQtdGAINGC0YDQ
+        sNC90LfQsNC60YbQuNC4OiA0MjM5MTAyMDg0MzAxNDA4MjcxMDE4MTBcbtCh
+        0YPQvNC80LAg0LIg0LLQsNC70Y7RgtC1INC/0LvQsNGC0LXQttCwOiAxLjAw
+        IFJVQiJ9
     http_version: 
   recorded_at: Sat, 30 Aug 2014 13:11:08 GMT
 recorded_with: VCR 2.6.0
