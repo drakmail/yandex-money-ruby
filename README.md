@@ -96,6 +96,32 @@ If scope insufficient, expcetion will be raised:
   #     Insufficient Scope
 ```
 
+### Payments from the Yandex.Money wallet
+
+#### request-payment method
+
+Creates a payment, checks parameters and verifies that the merchant can accept the payment, or that funds can be transferred to a Yandex.Money user account.
+
+Permissions required for making a payment to a merchant: `payment.to-pattern` (Payment Pattern) or `payment-shop`.
+Permissions required for transferring funds to the accounts of other users: `payment.to-account ("payee ID," "ID type")` or `payment-p2p`.
+
+Basic request-payment method call:
+
+```ruby
+  api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, 'payment.to-account("410000000000000")', TOKEN)
+  server_response = api.request_payment(
+    pattern_id: "p2p",
+    to: "410011285611534",
+    amount: "1.0",
+    comment: "test payment comment from yandex-money-ruby",
+    message: "test payment message from yandex-money-ruby",
+    label: "testPayment",
+    test_payment: "true",
+    test_result: "success"
+  )
+  #<OpenStruct status="success", contract="The generated test outgoing money transfer to 410011285611534, amount 1.0", recipient_account_type="personal", recipient_account_status="anonymous", request_id="test-p2p", test_payment="true", contract_amount=1.0, money_source={"wallet"=>{"allowed"=>true}}, recipient_identified=false>
+```
+
 ## Caveats
 
 This library very unstable. Pull requests welcome!
