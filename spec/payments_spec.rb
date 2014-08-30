@@ -42,5 +42,27 @@ describe "Payments from the Yandex.Money wallet" do
         }.to raise_error "Illegal params"
       end
     end
+
+    it "success process payment" do
+      VCR.use_cassette "success process payment to an account" do
+        server_response = @api.process_payment(
+          request_id: "test-p2p",
+          test_payment: "true",
+          test_result: "success"
+        )
+        expect(server_response.status).to eq "success"
+      end
+    end
+
+    it "raise exception without requered params when process payment" do
+      VCR.use_cassette "process payment to an account with failure" do
+        expect {
+          @api.process_payment(
+            test_payment: "true",
+            test_result: "success"
+          )
+        }.to raise_error "Contract not found"
+      end
+    end
   end
 end

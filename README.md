@@ -121,10 +121,22 @@ Basic request-payment method call:
     comment: "test payment comment from yandex-money-ruby",
     message: "test payment message from yandex-money-ruby",
     label: "testPayment",
-    test_payment: "true",
-    test_result: "success"
   )
   #<OpenStruct status="success", contract="The generated test outgoing money transfer to 410011285611534, amount 1.0", recipient_account_type="personal", recipient_account_status="anonymous", request_id="test-p2p", test_payment="true", contract_amount=1.0, money_source={"wallet"=>{"allowed"=>true}}, recipient_identified=false>
+```
+
+#### process-payment method
+
+Confirms a payment that was created using the `request_payment` method. Specifies the method for making the payment.
+
+Basic process-payment method call:
+
+```ruby
+  api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, 'payment.to-account("410000000000000")', TOKEN)
+  server_response = api.process_payment(
+    request_id: "test-p2p",
+  )
+  #<OpenStruct status="success", payer="41001565326286", payee="test", credit_amount=20.3, payee_uid=56809635, test_payment="true", payment_id="test">
 ```
 
 ## Caveats

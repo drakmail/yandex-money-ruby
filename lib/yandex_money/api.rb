@@ -83,6 +83,7 @@ module YandexMoney
       end
     end
 
+    # basic request payment method
     def request_payment(options)
       check_token
       uri = "/api/request-payment"
@@ -95,6 +96,25 @@ module YandexMoney
         raise "Insufficient Scope" if request.response.code == "403"
         request.parsed_response
       }
+      if response.error
+        raise response.error.gsub(/_/, " ").capitalize
+      else
+        response
+      end
+    end
+
+    # basic process payment method
+    def process_payment(options)
+      check_token
+      uri = "/api/process-payment"
+      request = self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
+        "Authorization" => "Bearer #{@token}",
+        "Content-Type" => "application/x-www-form-urlencoded"
+      }, body: options)
+
+      raise "Insufficient Scope" if request.response.code == "403"
+        
+      response = OpenStruct.new request.parsed_response
       if response.error
         raise response.error.gsub(/_/, " ").capitalize
       else
