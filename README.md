@@ -16,7 +16,7 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or install it manually with:
 
     $ gem install yandex-money-ruby
 
@@ -55,7 +55,7 @@ To get token use `YandexMoney::Api#obtain_token`:
 
 #### account-info method
 
-Getting information about the status of the user account. Required permissions: `account-info`.
+Getting information about the status of user's account. Required permissions: `account-info`.
 
 ```ruby
   api.account_info
@@ -84,7 +84,7 @@ Required permissions: `operation-details`.
   #<OpenStruct operation_id="462449992116028008", title="Возврат средств от:", amount=1.0, direction="in", datetime="2014-08-27T10:19:52Z", status="success", type="deposition", details="Отмена оплаты по банковской карте Яндекс.Денег\n , 5411, , \nНомер транзакции: 423910208430140827101810\nСумма в валюте платежа: 1.00 RUB">
 ```
 
-If operation not exists, exception will be raised:
+If operation doesn't exist, exception will be raised:
 
 ```ruby
   api.operation_details "unknown"
@@ -92,7 +92,7 @@ If operation not exists, exception will be raised:
   #     Illegal param operation id
 ```
 
-If scope insufficient, expcetion will be raised:
+If scope is insufficient, expcetion will be raised:
 
 ```ruby
   api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history", TOKEN)
@@ -141,7 +141,7 @@ Basic process-payment method call:
 
 ## Caveats
 
-This library very unstable. Pull requests welcome!
+This library is very unstable. Pull requests welcome!
 
 ## Contributing
 
