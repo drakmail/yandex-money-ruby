@@ -1,5 +1,8 @@
 # YandexMoney Api
 
+[![Build Status](https://travis-ci.org/drakmail/yandex-money-ruby.svg)](https://travis-ci.org/drakmail/yandex-money-ruby)
+[![Coverage Status](https://img.shields.io/coveralls/drakmail/yandex-money-ruby.svg)](https://coveralls.io/r/drakmail/yandex-money-ruby)
+
 Simple gem for Yandex Money usage.
 
 ## Installation
