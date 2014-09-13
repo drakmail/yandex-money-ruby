@@ -78,5 +78,19 @@ describe "Payments from the Yandex.Money wallet" do
         }.to raise_error "Illegal param protection code, attemps available: 2"
       end
     end
+
+    it "can reject payment" do
+      VCR.use_cassette "reject payment" do
+        expect(@api.incoming_transfer_reject("463947376678019004")).to be true
+      end
+    end
+
+    it "raise exception when reject wrong payment" do
+      VCR.use_cassette "reject payment fail" do
+        expect {
+          @api.incoming_transfer_reject("")
+        }.to raise_error "Illegal param operation id"
+      end
+    end
   end
 end

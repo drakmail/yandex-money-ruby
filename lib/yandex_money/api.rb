@@ -166,6 +166,23 @@ module YandexMoney
       end
     end
 
+    def incoming_transfer_reject(operation_id)
+      uri = "/api/incoming-transfer-reject"
+      request = self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
+        "Authorization" => "Bearer #{@token}",
+        "Content-Type" => "application/x-www-form-urlencoded"
+      }, body: {
+        operation_id: operation_id
+      })
+
+      raise "Insufficient Scope" if request.response.code == "403"
+      if request["status"] == "refused"
+        raise "#{request["error"].gsub(/_/, " ").capitalize}"
+      else
+        true
+      end
+    end
+
     private
 
     # Retry when errors
