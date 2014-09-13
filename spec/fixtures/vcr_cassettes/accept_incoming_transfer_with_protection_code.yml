@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://money.yandex.ru/api/incoming-transfer-accept
+    body:
+      encoding: UTF-8
+      string: operation_id=463937708331015004&protection_code=0208
+    headers:
+      Cookie:
+      - yandexuid=4504946371409241364
+      Authorization:
+      - Bearer 41001565326286.F231B646B62994F492C42942769B28211D996082FB0E553BF7D8783D91D6A2FF8CB9C83EA2E7A6A1DC303369916D25A8B60F63E52F6C19784F3F703B54332655CF59964ADFEF6D188F74E912617D7B0954A7BDEF83A683C09DAB35BC189785C3A1E6D0D7168F980875A67962C6119E87A18442E600F0ADB431DD1BCF33C905D3
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 13 Sep 2014 15:36:13 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '20'
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=120
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+    body:
+      encoding: UTF-8
+      string: '{"status":"success"}'
+    http_version: 
+  recorded_at: Sat, 13 Sep 2014 15:36:13 GMT
+recorded_with: VCR 2.9.3
