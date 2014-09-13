@@ -115,6 +115,7 @@ module YandexMoney
       raise "Insufficient Scope" if request.response.code == "403"
         
       response = OpenStruct.new request.parsed_response
+
       if response.error
         raise response.error.gsub(/_/, " ").capitalize
       else
@@ -129,10 +130,39 @@ module YandexMoney
       }, body: {
         client_id: @client_id
       })
+
       if request["status"] == "refused"
         raise request["error"].gsub(/_/, " ").capitalize
       else
         request["instance_id"]
+      end
+    end
+
+    def incoming_transfer_accept(operation_id, protection_code = nil)
+      uri = "/api/incoming-transfer-accept"
+      if protection_code
+        request_body = {
+          operation_id: operation_id,
+          protection_code: protection_code
+        }
+      else
+        request_body = { operation_id: operation_id }
+      end
+      request = self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
+        "Authorization" => "Bearer #{@token}",
+        "Content-Type" => "application/x-www-form-urlencoded"
+      }, body: request_body)
+
+      raise "Insufficient Scope" if request.response.code == "403"
+      if request["status"] == "refused"
+        if request["protection_code_attempts_available"]
+          attemps = ", attemps available: #{request["protection_code_attempts_available"]}"
+        else
+          attemps = ""
+        end
+        raise "#{request["error"].gsub(/_/, " ").capitalize}#{attemps}"
+      else
+        true
       end
     end
 

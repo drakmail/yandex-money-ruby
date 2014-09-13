@@ -7,7 +7,7 @@ describe "Payments from the Yandex.Money wallet" do
         @api = YandexMoney::Api.new(
           client_id: CLIENT_ID,
           redirect_uri: REDIRECT_URI,
-          scope: 'payment.to-account("410011285611534")'
+          scope: 'payment.to-account("410011285611534") incoming-transfers'
         )
         @api.code = "F0EF348A2AE89F87040E46618C029CB9D6EFC2BFC9254F959D9A629FDD3A4EB6DA067D6422D0E008D098802A0B612F583B72FA9E332C73D21E1F770CBCC6AAF81818859E79AA6018621504572A0B217B7F7456FEE5422AF85D7790C04D51779966700EF8E45B32B4342E411A3E185C3E58B72BBEAAE069D681BCC3D542B3CE1D"
         @api.obtain_token
@@ -62,6 +62,20 @@ describe "Payments from the Yandex.Money wallet" do
             test_result: "success"
           )
         }.to raise_error "Contract not found"
+      end
+    end
+
+    it "accept incoming transfer with protection code" do
+      VCR.use_cassette "accept incoming transfer with protection code" do
+        expect(@api.incoming_transfer_accept("463937708331015004", "0208")).to be true
+      end
+    end
+
+    it "raise exception with wrong protection code while accepting incoming transfer" do
+      VCR.use_cassette "accept incoming transfer with protection code with wrong code" do
+        expect {
+          @api.incoming_transfer_accept("463937921796020004", "6377")
+        }.to raise_error "Illegal param protection code, attemps available: 2"
       end
     end
   end
