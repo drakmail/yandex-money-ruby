@@ -38,7 +38,7 @@ Now you can run application:
   bundle exec ruby app.rb
 ```
 
-After this visit [this](http://127.0.0.1:4567/) page in your browser.
+After that visit [this](http://127.0.0.1:4567/) page in your browser.
 
 ## Installation
 
