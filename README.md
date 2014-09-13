@@ -6,6 +6,10 @@
 
 Simple gem for Yandex Money usage.
 
+## Example application
+
+You could find small example application in [sample](https://github.com/drakmail/yandex-money-ruby/tree/master/sample) directory.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -23,6 +27,14 @@ Or install it manually with:
 ## Usage
 
 ### Initialize API
+
+#### Require gem
+
+```ruby
+  require 'yandex_money/api'
+```
+
+#### Initialize API
 
 ```ruby
   # If TOKEN was obtained previosly
@@ -45,9 +57,11 @@ Or install it manually with:
   )
 ```
 
-### Use browser OS to send auth request to Yandex.Money server
+### Use user browser to send auth request to Yandex.Money server
 
-After visiting `api.client_url` client will be redirected to `REDIRECT_URL` with `code` parameter. It is authorization code, needed for token obtaining.
+After initializing `YandexMoney::Api` without token, you will find token request url in `api.client_url`. User need to visit that address with browser.
+
+After visiting `api.client_url` the user will be redirected to `REDIRECT_URL` with `code` parameter. It is authorization code, needed for token obtaining.
 
 To get token use `YandexMoney::Api#obtain_token`:
 

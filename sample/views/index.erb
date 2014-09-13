@@ -1,0 +1,40 @@
+<html>
+<head>
+</head>
+<body>
+
+<% if token %>
+  <a href="/">main</a>
+  <!-- token accuired -->
+  <h1>API Methods</h1>
+  <h2>Information about a user's account</h2>
+  <ul>
+    <!-- !!! NEVER EVER output user token in production env !!! -->
+    <li><a href="/account-info?token=<%= token %>">account info</a></li>
+    <li><a href="/operation-history?token=<%= token %>">operation history</a></li>
+    <li><a href="/operation-history?token=<%= token %>&records=3">operation history (last 3)</a></li>
+    <li><a href="/request-payment?token=<%= token %>">request payment (1 RUB)</a></li>
+    <% if defined? show_process_payment %>
+      <!-- request payment was done before -->
+      <li><a href="/process-payment?token=<%= token %>&request_id=<%= request_id %>">PROCESS PAYMENT (1.01 RUB)</a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <!-- form for obtaining token -->
+  <form action="/obtain-token" method="get">
+    <label>
+      Scope: <input type="text" name="scope" value='account-info operation-history payment-p2p incoming-transfers'/>
+      <a href="http://api.yandex.ru/money/doc/dg/concepts/protocol-rights.xml">documentation</a>
+    </label>
+    <input type="submit" value="Obtain token" />
+  </form>
+<% end %>
+
+<!-- API call result -->
+<% if defined? result %>
+  <p><strong>RESULT</strong></p>
+  <pre><%= result %></pre>
+<% end %>
+
+</body>
+</html>
