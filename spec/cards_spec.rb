@@ -31,11 +31,23 @@ describe "auth" do
       )
       expect(@api.request_external_payment({
         pattern_id: "p2p",
-        instance_id: INSTANCE_ID,
         to: "410011285611534",
         amount_due: "1.00",
         message: "test"
       }).status).to eq("success")
+    end
+  end
+
+  it "should process external payment" do
+    VCR.use_cassette "process external payment" do
+      @api = YandexMoney::Api.new(
+        instance_id: INSTANCE_ID
+      )
+      expect(@api.process_external_payment({
+        request_id: REQUEST_ID,
+        ext_auth_success_uri: "http://drakmail.ru/success",
+        ext_auth_fail_uri: "http://drakmail.ru/fail"
+      }).status).to eq("ext_auth_required")
     end
   end
 end

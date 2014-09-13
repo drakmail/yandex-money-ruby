@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://money.yandex.ru/api/process-external-payment
+    body:
+      encoding: UTF-8
+      string: request_id=313230393739363039365f64643133633966326338353530303230663461616330303239373030646132616437393134623165&ext_auth_success_uri=http%3A%2F%2Fdrakmail.ru%2Fsuccess&ext_auth_fail_uri=http%3A%2F%2Fdrakmail.ru%2Ffail&instance_id=zRhKWeiQVphBSd6I%2FA8p28R4uRMx9QPPW1nviyTFkQf%2Ba73JuX2jSD0gVEQhWtOH
+    headers:
+      Cookie:
+      - yandexuid=4504946371409241364
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 13 Sep 2014 19:29:48 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '263'
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=120
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+    body:
+      encoding: UTF-8
+      string: '{"status":"ext_auth_required","acs_params":{"cps_context_id":"313230393739363039365f64643133633966326338353530303230663461616330303239373030646132616437393134623165","paymentType":"FC"},"acs_uri":"https://m.sp-money.yandex.ru/internal/public-api/to-payment-type"}'
+    http_version: 
+  recorded_at: Sat, 13 Sep 2014 19:29:48 GMT
+recorded_with: VCR 2.9.3

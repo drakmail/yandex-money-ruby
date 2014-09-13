@@ -10,7 +10,7 @@ module YandexMoney
     base_uri "https://sp-money.yandex.ru"
     default_timeout 30
 
-    attr_accessor :client_url, :code, :token
+    attr_accessor :client_url, :code, :token, :instance_id
 
     # Returns url to get token
     def initialize(options)
@@ -20,6 +20,7 @@ module YandexMoney
       else
         @client_id = options[:client_id]
         @redirect_uri = options[:redirect_uri]
+        @instance_id = options[:instance_id]
         if options[:scope] != nil
           # TODO: extract for manual call
           @client_url = send_authorize_request(
@@ -187,6 +188,7 @@ module YandexMoney
     end
 
     def request_external_payment(payment_options)
+      payment_options[:instance_id] ||= @instance_id
       uri = "/api/request-external-payment"
       request = self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
         "Content-Type" => "application/x-www-form-urlencoded"
@@ -194,6 +196,22 @@ module YandexMoney
       raise "Insufficient Scope" if request.response.code == "403"
       if request["status"] == "refused"
         raise "#{request["error"].gsub(/_/, " ").capitalize}"
+      else
+        OpenStruct.new request.parsed_response
+      end
+    end
+
+    def process_external_payment(payment_options)
+      payment_options[:instance_id] ||= @instance_id
+      uri = "/api/process-external-payment"
+      request = self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
+        "Content-Type" => "application/x-www-form-urlencoded"
+      }, body: payment_options)
+      raise "Insufficient Scope" if request.response.code == "403"
+      if request["status"] == "refused"
+        raise "#{request["error"].gsub(/_/, " ").capitalize}"
+      elsif request["status"] == "in_progress"
+        raise "in progress", request["next_retry"]
       else
         OpenStruct.new request.parsed_response
       end
