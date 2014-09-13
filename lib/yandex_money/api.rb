@@ -15,7 +15,7 @@ module YandexMoney
     # Returns url to get token
     def initialize(options)
       # TOKEN provided
-      if options.length == 1
+      if options.length == 1 && options[:token] != nil
         @token = options[:token]
       else
         @client_id = options[:client_id]
