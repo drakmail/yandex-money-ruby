@@ -78,6 +78,9 @@ Required permissions: `operation-history`.
 ```ruby
   api.operation_history
   #<OpenStruct next_record="30", operations=[{"operation_id"=>"462449992116028008", "title"=>"Возврат средств от:", "amount"=>1.0, "direction"=>"in", "datetime"=>"2014-08-27T10:19:52Z", "status"=>"success", "type"=>"deposition"}, ..., {"pattern_id"=>"p2p", "operation_id"=>"460970888534110007", "title"=>"Перевод на счет 410011700000000", "amount"=>3.02, "direction"=>"out", "datetime"=>"2014-08-10T07:28:15Z", "status"=>"success", "type"=>"outgoing-transfer"}]>
+  # you could pass params:
+  api.operation_history(records: 1)
+  #<OpenStruct next_record="1", operations=[{"pattern_id"=>"p2p", "operation_id"=>"463947376678019004", "title"=>"Перевод от 410011285000000", "amount"=>0.99, "direction"=>"in", "datetime"=>"2014-09-13T18:16:16Z", "status"=>"refused", "type"=>"incoming-transfer-protected"}]>
 ```
 
 #### operation-details method

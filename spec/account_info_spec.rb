@@ -29,6 +29,13 @@ describe "get account info" do
     end
   end
 
+  it "should return operation history with params" do
+    VCR.use_cassette "get operation history with params" do
+      history = @api.operation_history(records: 1)
+      expect(history.operations.count).to eq 1
+    end
+  end
+
   # http://api.yandex.com/money/doc/dg/reference/operation-details.xml
   describe "operation details" do
     it "should return valid operation details" do

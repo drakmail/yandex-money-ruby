@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://money.yandex.ru/api/operation-history
+    body:
+      encoding: UTF-8
+      string: records=1
+    headers:
+      Authorization:
+      - Bearer 41001565326286.B93F917A6E44078B5FA04B7089BC213BE925EC52FB06B3E4EC4B2BFD91C8B2DAB75B552224D3B56C59EE3F7FFD0BB9EF3E14D9221F34EFFF2B0D378532A041F230338D28272A574671AB2639761126E2F587F02077005354F906C9A79FEFED6CBB3D5E3EB0DC90B2B6D029837D744613978DDE8AA42F5916BBE524B752E89E20
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 13 Sep 2014 20:38:38 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '258'
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=120
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJuZXh0X3JlY29yZCI6IjEiLCJvcGVyYXRpb25zIjpbeyJwYXR0ZXJuX2lk
+        IjoicDJwIiwib3BlcmF0aW9uX2lkIjoiNDYzOTQ3Mzc2Njc4MDE5MDA0Iiwi
+        dGl0bGUiOiLQn9C10YDQtdCy0L7QtCDQvtGCIDQxMDAxMTI4NTYxMTUzNCIs
+        ImFtb3VudCI6MC45OSwiZGlyZWN0aW9uIjoiaW4iLCJkYXRldGltZSI6IjIw
+        MTQtMDktMTNUMTg6MTY6MTZaIiwic3RhdHVzIjoicmVmdXNlZCIsInR5cGUi
+        OiJpbmNvbWluZy10cmFuc2Zlci1wcm90ZWN0ZWQifV19
+    http_version: 
+  recorded_at: Sat, 13 Sep 2014 20:38:40 GMT
+recorded_with: VCR 2.9.3
