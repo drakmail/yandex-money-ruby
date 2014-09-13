@@ -122,6 +122,20 @@ module YandexMoney
       end
     end
 
+    def get_instance_id
+      uri = "/api/instance-id"
+      request = self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
+        "Content-Type" => "application/x-www-form-urlencoded"
+      }, body: {
+        client_id: @client_id
+      })
+      if request["status"] == "refused"
+        raise request["error"].gsub(/_/, " ").capitalize
+      else
+        request["instance_id"]
+      end
+    end
+
     private
 
     # Retry when errors

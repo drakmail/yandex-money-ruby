@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://money.yandex.ru/api/instance-id
+    body:
+      encoding: UTF-8
+      string: client_id=
+    headers:
+      Cookie:
+      - yandexuid=4504946371409241364
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 13 Sep 2014 15:03:16 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '54'
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=120
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+    body:
+      encoding: UTF-8
+      string: '{"status":"success","instance_id":"1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1"}'
+    http_version: 
+  recorded_at: Sat, 13 Sep 2014 15:03:15 GMT
+recorded_with: VCR 2.9.3
