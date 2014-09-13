@@ -95,7 +95,7 @@ If operation doesn't exist, exception will be raised:
 If scope is insufficient, expcetion will be raised:
 
 ```ruby
-  api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, "account-info operation-history", TOKEN)
+  api = YandexMoney::Api.new(token: TOKEN)
   api.operation_details(OPERATION_ID)
   #  RuntimeError:
   #     Insufficient Scope
@@ -113,7 +113,7 @@ Permissions required for transferring funds to the accounts of other users: `pay
 Basic request-payment method call:
 
 ```ruby
-  api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, 'payment.to-account("410000000000000")', TOKEN)
+  api = YandexMoney::Api.new(token: TOKEN)
   server_response = api.request_payment(
     pattern_id: "p2p",
     to: "410011285611534",
@@ -132,11 +132,89 @@ Confirms a payment that was created using the `request_payment` method. Specifie
 Basic process-payment method call:
 
 ```ruby
-  api = YandexMoney::Api.new(CLIENT_ID, REDIRECT_URI, 'payment.to-account("410000000000000")', TOKEN)
-  server_response = api.process_payment(
+  api = YandexMoney::Api.new(token: TOKEN)
+  api.process_payment(
     request_id: "test-p2p",
   )
   #<OpenStruct status="success", payer="41001565326286", payee="test", credit_amount=20.3, payee_uid=56809635, test_payment="true", payment_id="test">
+```
+
+#### incoming-transfer-accept method
+
+Accepting incoming transfers with a secret code and deferred transfers.
+
+There is a limit on the number of attempts to accept an incoming transfer with a secret code. When the allowed number of attempts have been used up, the transfer is automatically rejected (the transfer is returned to the sender).
+
+Required token permissions: `incoming-transfers`.
+
+```ruby
+  api = YandexMoney::Api.new(token: TOKEN)
+  api.incoming_transfer_accept "463937708331015004", "0208"
+  # true
+  api.incoming_transfer_accept "463937708331015004", "WRONG"
+  #  RuntimeError:
+  #     Illegal param protection code, attemps available: 2
+```
+
+#### incoming-transfer-reject method
+
+Canceling incoming transfers with a secret code and deferred transfers. If the transfer is canceled, it is returned to the sender.
+
+Required token permissions: `incoming-transfers`.
+
+```ruby
+  api = YandexMoney::Api.new(token: TOKEN)
+  api.incoming_transfer_reject "463947376678019004"
+  # true
+  api.incoming_transfer_reject ""
+  #  RuntimeError:
+  #     Illegal param operation id
+```
+
+### Payments from bank cards without authorization
+
+#### instance-id method
+
+Registering an instance of the application.
+
+```ruby
+  api = YandexMoney::Api.new(client_id: CLIENT_ID)
+  api.get_instance_id # returns string, contains instance id
+```
+
+If `client_id` is wrong - exception will be raised.
+
+#### request-external-payment method
+
+Creating a payment and checking its parameters.
+
+```ruby
+  api = YandexMoney::Api.new(
+    client_id: CLIENT_ID,
+    instance_id: INSTANCE_ID
+  )
+  api.request_external_payment({
+    pattern_id: "p2p",
+    to: "410011285611534",
+    amount_due: "1.00",
+    message: "test"
+  })
+  #<OpenStruct status="success", title="Перевод на счет 4100000000000000", contract_amount=50.0, request_id="313230...93134623165", money_source={"payment-card"=>{}}>
+```
+
+#### process-external-payment method
+
+Making a payment. The application calls the method up until the final payment status is known (`status`=`success`/`refused`).
+The recommended retry mode is determined by the `next_retry` response field (by default, 5 seconds).
+
+```ruby
+  api = YandexMoney::Api.new(instance_id: INSTANCE_ID)
+  api.process_external_payment({
+    request_id: REQUEST_ID,
+    ext_auth_success_uri: "http://example.com/success",
+    ext_auth_fail_uri: "http://example.com/fail"
+  })
+  #<OpenStruct status="ext_auth_required", acs_params={"cps_context_id"=>"31323039373...93134623165", "paymentType"=>"FC"}, acs_uri="https://m.sp-money.yandex.ru/internal/public-api/to-payment-type">
 ```
 
 ## Caveats

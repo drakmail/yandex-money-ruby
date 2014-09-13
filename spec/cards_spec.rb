@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "auth" do
+describe "Payments from bank cards without authorization" do
   before :all do
     VCR.use_cassette "obtain token for payments from bank cards without authorization" do
     end
