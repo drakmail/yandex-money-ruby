@@ -20,12 +20,15 @@ module YandexMoney
       else
         @client_id = options[:client_id]
         @redirect_uri = options[:redirect_uri]
-        @client_url = send_authorize_request(
-          "client_id" => @client_id,
-          "response_type" => "code",
-          "redirect_uri" => @redirect_uri,
-          "scope" => options[:scope]
-        )
+        if options[:scope] != nil
+          # TODO: extract for manual call
+          @client_url = send_authorize_request(
+            "client_id" => @client_id,
+            "response_type" => "code",
+            "redirect_uri" => @redirect_uri,
+            "scope" => options[:scope]
+          )
+        end
       end
     end
 
@@ -180,6 +183,19 @@ module YandexMoney
         raise "#{request["error"].gsub(/_/, " ").capitalize}"
       else
         true
+      end
+    end
+
+    def request_external_payment(payment_options)
+      uri = "/api/request-external-payment"
+      request = self.class.post(uri, base_uri: "https://money.yandex.ru", headers: {
+        "Content-Type" => "application/x-www-form-urlencoded"
+      }, body: payment_options)
+      raise "Insufficient Scope" if request.response.code == "403"
+      if request["status"] == "refused"
+        raise "#{request["error"].gsub(/_/, " ").capitalize}"
+      else
+        OpenStruct.new request.parsed_response
       end
     end
 

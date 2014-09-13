@@ -19,7 +19,23 @@ describe "auth" do
       @api = YandexMoney::Api.new(
         client_id: CLIENT_ID
       )
-      expect(@api.get_instance_id).to eq("zRhKWeiQVphBSd6I/A8p28R4uRMx9QPPW1nviyTFkQf+a73JuX2jSD0gVEQhWtOH")
+      expect(@api.get_instance_id).to eq(INSTANCE_ID)
+    end
+  end
+
+  it "should request external payment" do
+    VCR.use_cassette "request external payment" do
+      @api = YandexMoney::Api.new(
+        client_id: CLIENT_ID,
+        instance_id: INSTANCE_ID
+      )
+      expect(@api.request_external_payment({
+        pattern_id: "p2p",
+        instance_id: INSTANCE_ID,
+        to: "410011285611534",
+        amount_due: "1.00",
+        message: "test"
+      }).status).to eq("success")
     end
   end
 end

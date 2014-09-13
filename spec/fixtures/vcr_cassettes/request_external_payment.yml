@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://money.yandex.ru/api/request-external-payment
+    body:
+      encoding: UTF-8
+      string: pattern_id=p2p&instance_id=zRhKWeiQVphBSd6I%2FA8p28R4uRMx9QPPW1nviyTFkQf%2Ba73JuX2jSD0gVEQhWtOH&to=410011285611534&amount_due=1.00&message=test
+    headers:
+      Cookie:
+      - yandexuid=4504946371409241364
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 13 Sep 2014 18:49:54 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '252'
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=120
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJzdGF0dXMiOiJzdWNjZXNzIiwidGl0bGUiOiLQn9C10YDQtdCy0L7QtCDQ
+        vdCwINGB0YfQtdGCIDQxMDAxMTI4NTYxMTUzNCIsImNvbnRyYWN0X2Ftb3Vu
+        dCI6NTAuMDAsInJlcXVlc3RfaWQiOiIzMTMyMzAzOTM3MzkzNjMwMzkzNjVm
+        NjQ2NDMxMzM2MzM5NjYzMjYzMzgzNTM1MzAzMDMyMzA2NjM0NjE2MTYzMzAz
+        MDMyMzkzNzMwMzA2NDYxMzI2MTY0MzczOTMxMzQ2MjMxNjUiLCJtb25leV9z
+        b3VyY2UiOnsicGF5bWVudC1jYXJkIjp7fX19
+    http_version: 
+  recorded_at: Sat, 13 Sep 2014 18:49:54 GMT
+recorded_with: VCR 2.9.3
